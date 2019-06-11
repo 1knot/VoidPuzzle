@@ -38,7 +38,6 @@ public class Puzzle4
             string unitId = data[i - 1].ToString();
             curUnitRT[unitId].anchoredPosition = unitPos[posId];
         }
-        Debug.Log("the space pos is " + spacePos);
     }
     //获取当前地图种子
     public long getSeed(){
@@ -77,7 +76,6 @@ public class Puzzle4
         if(this.canUp()){
             this.swap(spacePos - 4);
             spacePos -= 4;
-            Debug.Log("the space pos is " + spacePos);
             return true;
         }else{
             return false;
@@ -87,7 +85,6 @@ public class Puzzle4
         if(this.canDown()){
             this.swap(spacePos + 4);
             spacePos += 4;
-            Debug.Log("the space pos is " + spacePos);
             return true;
         }else{
             return false;
@@ -97,7 +94,6 @@ public class Puzzle4
         if(this.canLeft()){
             this.swap(spacePos - 1);
             spacePos -= 1;
-            Debug.Log("the space pos is " + spacePos);
             return true;
         }else{
             return false;
@@ -107,7 +103,6 @@ public class Puzzle4
         if(this.canRight()){
             this.swap(spacePos + 1);
             spacePos += 1;
-            Debug.Log("the space pos is " + spacePos);
             return true;
         }else{
             return false;

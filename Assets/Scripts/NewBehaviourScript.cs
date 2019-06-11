@@ -4,12 +4,14 @@ using UnityEngine;
 
 public class NewBehaviourScript : MonoBehaviour
 {
-    List<int> l = new List<int>();
+    
     Puzzle4 p;
     void Start()
     {
+        //这个构造函数里填的是地图种子
+        //种子的范围是0~20922789887999
+        //以及，还没做测试
         p = new Puzzle4(0);
-        //Debug.Log(p.getSeed());
     }
 
     // Update is called once per frame
