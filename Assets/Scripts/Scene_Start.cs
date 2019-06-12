@@ -19,17 +19,22 @@ public class Scene_Start : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //计数
         _timer += Time.deltaTime;
 
+        //文字闪烁
         if (_timer % 0.5f > 0.25f)
         {
+            //文字可见
             anyKeyObj.SetActive(true);
         }
         else
         {
+            //文字不可见
             anyKeyObj.SetActive(false);
         }
 
+        //累计时间大于100或按下任意键
         if (_timer > 100 || Input.anyKeyDown)
         {
             //任意键按下，则直接跳转主菜单场景
