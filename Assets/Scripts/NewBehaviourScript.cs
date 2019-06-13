@@ -10,7 +10,7 @@ public class NewBehaviourScript : MonoBehaviour
 {
     
     Puzzle4 p;
-    int steps = 0;
+    
     float _timer;
 
     Text label;
@@ -36,7 +36,11 @@ public class NewBehaviourScript : MonoBehaviour
         //这个构造函数里填的是地图种子
         //种子的范围是0~20922789887999
         //以及，还没做测试
-        p = new Puzzle4(0);
+        //p = new Puzzle4(0);
+        //后来换成了随机种子
+        p = new Puzzle4();
+
+        GameObject.Find("czBtn").GetComponent<Button>().onClick.AddListener(() => { czBtnClick(); });
     }
 
     //进入所选菜单
@@ -58,28 +62,23 @@ public class NewBehaviourScript : MonoBehaviour
             //向上移动成功
             if (p.goDown())
             {
-                //步数累加1
-                steps++;
-                label.text = steps.ToString() + "次";
-                Debug.Log("向上移动了");
-                Debug.Log(steps);
+                afterUDLR();
             }
-           
         }
           
         if (Input.GetKeyDown(KeyCode.DownArrow))
         {
             if (p.goUp())
             {
+
                 //假设拼图完成      
                 //结束页面可见
                 resultPanel.SetActive(true);
                 //还有停止计时
                 /*--------end-------*/
-                steps++;
-                label.text = steps.ToString() + "次";
-                Debug.Log("向下移动了");
-                Debug.Log(steps);
+              
+                afterUDLR();
+
             }        
         }
             
@@ -88,10 +87,7 @@ public class NewBehaviourScript : MonoBehaviour
         {
             if (p.goRight())
             {
-                steps++;
-                label.text = steps.ToString()+"次";
-                Debug.Log("向左移动了");
-                Debug.Log(steps);
+                afterUDLR();
             }
         }
             
@@ -100,13 +96,22 @@ public class NewBehaviourScript : MonoBehaviour
         {
             if (p.goLeft())
             {
-                steps++;
-                label.text = steps.ToString() + "次";
-                Debug.Log("向右移动了");
-                Debug.Log(steps);
+                afterUDLR();
             }             
         }
-            
-     
+        label.text = p.getUseStep().ToString() + "次";
+    }
+
+    void afterUDLR()
+    {
+        if(p.isFinish())
+        {
+            Debug.Log("完成拼图提示");
+        }
+    }
+    void czBtnClick()
+    {
+        p.resetPuzzle(p.getMapSeed());
+        Debug.Log("点击了重置按钮");
     }
 }
