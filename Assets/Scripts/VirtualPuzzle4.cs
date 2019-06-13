@@ -153,6 +153,7 @@ public class VirtualPuzzle4
             return false;
         }
     }
+    
     /* 
     public bool isFinish(){
         for(int i = 0; i < 16; i++){
