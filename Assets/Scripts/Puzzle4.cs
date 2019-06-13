@@ -1,5 +1,4 @@
-﻿//using System;
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -25,6 +24,7 @@ public class Puzzle4
     //Hard难度的解决路径
     private char[] hardPath;
     
+    private GameObject unit16 = GameObject.Find("16");
 
     //根据种子生成一个Puzzle
     public Puzzle4(long seed){
@@ -32,6 +32,7 @@ public class Puzzle4
         this.getInitUnitPos();
         this.init();
         this.resetPuzzle(seed);
+        unit16.SetActive(false);
     }
     public bool resetPuzzle(long seed){
         this.useStep = 0;
@@ -118,8 +119,9 @@ public class Puzzle4
             data.Add(i);
         }
         this.spacePos = 16;
-        this.rand(100);
+        this.rand(75);
         this.seed = this.getSeed();
+        unit16.SetActive(false);
     }
     //获取初始的unit位置
     private bool getInitUnitPos(){
@@ -310,7 +312,14 @@ public class Puzzle4
             if(this.data[i] != i+1)
                 return false;
         }
+        unit16.SetActive(true);
         return true;
+    }
+    public int getHardStep(){
+        return this.hardStep;
+    }
+    public char[] getHardPath(){
+        return this.hardPath;
     }
     public int getUseStep(){
         return this.useStep;
