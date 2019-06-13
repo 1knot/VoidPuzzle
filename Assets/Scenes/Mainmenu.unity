@@ -426,7 +426,7 @@ GameObject:
   - component: {fileID: 721233906}
   - component: {fileID: 721233907}
   m_Layer: 5
-  m_Name: set
+  m_Name: setBtn
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -447,9 +447,9 @@ RectTransform:
   m_Father: {fileID: 318623269}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -78.842, y: -163.751}
+  m_AnchorMin: {x: 0.532, y: 0.293}
+  m_AnchorMax: {x: 0.532, y: 0.293}
+  m_AnchoredPosition: {x: -111.84201, y: -4.751007}
   m_SizeDelta: {x: 50, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &721233904
@@ -997,7 +997,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\u6E38\u620F\u8BBE\u7F6E\n"
+  m_Text: "\u9009\u62E9\u56FE\u6848\n\n"
 --- !u!222 &1315383061
 CanvasRenderer:
   m_ObjectHideFlags: 0
