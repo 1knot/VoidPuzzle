@@ -19,7 +19,7 @@ public class Scene_MainMenu : MonoBehaviour
     {
         Debug.Log("Start");
         GameObject.Find("PlayBtn").GetComponent<Button>().onClick.AddListener(() => { OnClick(); });
-        //GameObject.Find("StudentBtn").GetComponent<Button>().onClick.AddListener(() => { OnClickThemeBtn(THEME_ID.Student); });
+        GameObject.Find("setBtn").GetComponent<Button>().onClick.AddListener(() => { OnClick_2(); });
         GameObject.Find("CloseBtn").GetComponent<Button>().onClick.AddListener(() => { OnCloseApp(); });
     }
 
@@ -34,6 +34,13 @@ public class Scene_MainMenu : MonoBehaviour
     {
         Debug.Log("进入SampleScene");
         SceneManager.LoadScene("SampleScene");
+    }
+
+    //进入所选菜单
+    void OnClick_2()
+    {
+        Debug.Log("进入SelectLevel");
+        SceneManager.LoadScene("SelectLevel");
     }
 
     //退出程序
