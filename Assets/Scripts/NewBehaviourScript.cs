@@ -18,7 +18,9 @@ public class NewBehaviourScript : MonoBehaviour
     //结束页面
     GameObject resultPanel;
 
-    
+    public GameObject go1;
+
+
 
     void Start()
     {
@@ -41,6 +43,8 @@ public class NewBehaviourScript : MonoBehaviour
         p = new Puzzle4();
 
         GameObject.Find("czBtn").GetComponent<Button>().onClick.AddListener(() => { czBtnClick(); });
+
+        
     }
 
     //进入所选菜单
@@ -70,15 +74,8 @@ public class NewBehaviourScript : MonoBehaviour
         {
             if (p.goUp())
             {
-
-                //假设拼图完成      
-                //结束页面可见
-                resultPanel.SetActive(true);
-                //还有停止计时
-                /*--------end-------*/
-              
                 afterUDLR();
-
+            
             }        
         }
             
@@ -107,6 +104,11 @@ public class NewBehaviourScript : MonoBehaviour
         if(p.isFinish())
         {
             Debug.Log("完成拼图提示");
+            //拼图完成      
+            //结束页面可见
+            resultPanel.SetActive(true);
+            //还有停止计时
+
         }
     }
     void czBtnClick()

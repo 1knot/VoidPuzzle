@@ -10,7 +10,9 @@ public class PanelResult : MonoBehaviour
     public GameObject winTxtObj;
     //public Button againBtn;
     //public Button mainmenuBtn;
-    
+   
+   
+
 
     private void Awake()
     {
@@ -22,10 +24,14 @@ public class PanelResult : MonoBehaviour
     // Use this for initialization
     void Start()
     {
+
+       
+
+        //调用方法
         //againBtn.onClick.AddListener(() => { againBtn(); });
         //mainmenuBtn.onClick.AddListener(() => { OnMainMenuBtn(); });
         //winTxtObj = GameObject.Find("winTxtObj");
-        
+
         GameObject.Find("againBtn").GetComponent<Button>().onClick.AddListener(() => { againBtn(); });
         GameObject.Find("mainmenuBtn").GetComponent<Button>().onClick.AddListener(() => { OnMainMenuBtn(); });
 
