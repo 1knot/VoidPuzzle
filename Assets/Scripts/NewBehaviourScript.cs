@@ -5,17 +5,30 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 
+
 public class NewBehaviourScript : MonoBehaviour
 {
     
     Puzzle4 p;
+    
     float _timer;
 
     Text label;
     Text labe2;
+    //结束页面
+    GameObject resultPanel;
+
+    public GameObject go1;
+
+
 
     void Start()
     {
+        //找到结束页面对象
+        resultPanel = GameObject.Find("Resultpanel");
+        //设置结束页面不可见，下面有假设设置可见
+        resultPanel.SetActive(false);
+
         //绑定text文本
         label = GameObject.Find("Text_number").GetComponent<Text>();
         labe2 = GameObject.Find("Text_time").GetComponent<Text>();
@@ -30,6 +43,8 @@ public class NewBehaviourScript : MonoBehaviour
         p = new Puzzle4();
 
         GameObject.Find("czBtn").GetComponent<Button>().onClick.AddListener(() => { czBtnClick(); });
+
+        
     }
 
     //进入所选菜单
@@ -60,6 +75,7 @@ public class NewBehaviourScript : MonoBehaviour
             if (p.goUp())
             {
                 afterUDLR();
+            
             }        
         }
             
@@ -88,6 +104,11 @@ public class NewBehaviourScript : MonoBehaviour
         if(p.isFinish())
         {
             Debug.Log("完成拼图提示");
+            //拼图完成      
+            //结束页面可见
+            resultPanel.SetActive(true);
+            //还有停止计时
+
         }
     }
     void czBtnClick()
