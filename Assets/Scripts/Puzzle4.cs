@@ -59,6 +59,7 @@ public class Puzzle4
             curUnitRT[unitId].anchoredPosition = unitPos[posId];
         }
         Debug.Log("重置了拼图");
+        unit16.SetActive(false);
         return true;
     }
 

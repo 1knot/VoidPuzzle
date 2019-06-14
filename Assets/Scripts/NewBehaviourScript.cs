@@ -11,6 +11,7 @@ public class NewBehaviourScript : MonoBehaviour
     
     Puzzle4 p;
     
+    public static int difficult = 0;
     float _timer;
 
     Text label;
@@ -72,10 +73,11 @@ public class NewBehaviourScript : MonoBehaviour
         //后来换成了随机种子
         p = new Puzzle4();
 
+        // resultPanel.p = p;
+        // resultPanel.rp = resultPanel
         GameObject.Find("czBtn").GetComponent<Button>().onClick.AddListener(() => { czBtnClick(); });
         hyBtn.GetComponent<Button>().onClick.AddListener(() => { hyBtnClick(); });
         new Thread(sloveThread).Start();
-        
     }
 
     //进入所选菜单
@@ -175,17 +177,35 @@ public class NewBehaviourScript : MonoBehaviour
             winTxtObj.SetActive(false);
             failedTxtObj.SetActive(false);
 
-            int realstep = p.getUseStep();
-            int needstep = p.getEasyStep();
-            if (realstep < needstep)
+            if(difficult > 0)
             {
-                winTxtObj.SetActive(true);
+                if(difficult == 1)
+                {
+                    if(p.getUseStep() <= p.getEasyStep())
+                    {
+                        winTxtObj.SetActive(true);
+                    }
+                    else
+                    {
+                        failedTxtObj.SetActive(true);
+                    }
+                }
+                else if(difficult == 2)
+                {
+                    if(p.getUseStep() <= p.getHardStep())
+                    {
+                        winTxtObj.SetActive(true);
+                    }
+                    else
+                    {
+                        failedTxtObj.SetActive(true);
+                    }
+                }
             }
             else
             {
-                failedTxtObj.SetActive(true);
+                winTxtObj.SetActive(true);
             }
-            
             //还有停止计时
 
         }

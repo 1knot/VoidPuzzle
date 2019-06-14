@@ -10,8 +10,7 @@ public class PanelResult : MonoBehaviour
     public GameObject winTxtObj;
     //public Button againBtn;
     //public Button mainmenuBtn;
-   
-   
+    
 
 
     private void Awake()
@@ -34,6 +33,10 @@ public class PanelResult : MonoBehaviour
 
         GameObject.Find("againBtn").GetComponent<Button>().onClick.AddListener(() => { againBtn(); });
         GameObject.Find("mainmenuBtn").GetComponent<Button>().onClick.AddListener(() => { OnMainMenuBtn(); });
+        // GameObject.Find("cwBtn").GetComponent<Button>().onClick.AddListener(() => { 
+        //     p.resetPuzzle(p.getMapSeed());
+        //     rp.SetActive(false);
+        // });
 
         //假设一开始就胜利
        // MatchResult(true);
