@@ -32,9 +32,14 @@ public class NewBehaviourScript : MonoBehaviour
     //电脑的操作 0不操作 1向上 2向左 3 向右 4 向下
     int ComputerOp = 0;
 
+    public GameObject winTxtObj;
+    public GameObject failedTxtObj;
+
     void Start()
     {
 
+        winTxtObj = GameObject.Find("winTxtObj");
+        failedTxtObj = GameObject.Find("failedTxtObj");
 
         string picName = Scene_Select.picName;
         GameObject.Find("original_img").GetComponent<Image>().sprite = GameObject.Find(picName).GetComponent<SpriteRenderer>().sprite;
@@ -83,9 +88,18 @@ public class NewBehaviourScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //计数
-        _timer += Time.deltaTime;
-        labe2.text = _timer.ToString("F2")+"秒";
+        if (p.isFinish())
+        {
+            _timer = _timer;
+            labe2.text = _timer.ToString("F2") + "秒";
+        }
+        else
+        {
+            //计数
+            _timer += Time.deltaTime;
+            labe2.text = _timer.ToString("F2") + "秒";
+        }
+       
         
         if(canUserOp)
         {
@@ -158,6 +172,20 @@ public class NewBehaviourScript : MonoBehaviour
             //拼图完成      
             //结束页面可见
             resultPanel.SetActive(true);
+            winTxtObj.SetActive(false);
+            failedTxtObj.SetActive(false);
+
+            int realstep = p.getUseStep();
+            int needstep = p.getEasyStep();
+            if (realstep < needstep)
+            {
+                winTxtObj.SetActive(true);
+            }
+            else
+            {
+                failedTxtObj.SetActive(true);
+            }
+            
             //还有停止计时
 
         }
