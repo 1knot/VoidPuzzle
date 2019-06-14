@@ -324,4 +324,8 @@ public class Puzzle4
     public int getUseStep(){
         return this.useStep;
     }
+    public int getEasyStep()
+    {
+        return this.easyStep;
+    }
 }
